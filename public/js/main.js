@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 3. Search Filter in Hero
-    const searchInput = document.getElementById('heroSearchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', function () {
+    // 3. Search Filter in Paket Wisata & Hero
+    const paketSearchInput = document.getElementById('paketSearchInput') || document.getElementById('heroSearchInput');
+    if (paketSearchInput) {
+        paketSearchInput.addEventListener('input', function () {
             const query = this.value.toLowerCase().trim();
             const packageCards = document.querySelectorAll('.package-card');
 
@@ -58,9 +58,51 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // 4. Category Filter Dropdown in Paket Wisata
+    const btnFilterCategory = document.getElementById('btnFilterCategory');
+    const categoryDropdownMenu = document.getElementById('categoryDropdownMenu');
+
+    if (btnFilterCategory && categoryDropdownMenu) {
+        btnFilterCategory.addEventListener('click', function (e) {
+            e.stopPropagation();
+            categoryDropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function () {
+            categoryDropdownMenu.classList.remove('show');
+        });
+
+        const dropdownItems = categoryDropdownMenu.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                dropdownItems.forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+
+                const selectedCategory = this.getAttribute('data-category');
+                const btnText = btnFilterCategory.querySelector('span');
+                if (btnText) {
+                    btnText.textContent = this.textContent;
+                }
+
+                const packageCards = document.querySelectorAll('.package-card');
+                packageCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category') || '';
+                    if (selectedCategory === 'all' || cardCategory.includes(selectedCategory)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                categoryDropdownMenu.classList.remove('show');
+            });
+        });
+    }
 });
 
-// 4. Form Submit Handler (Demo / Dummy Notification)
+// 5. Form Submit Handler (Demo / Dummy Notification)
 function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;

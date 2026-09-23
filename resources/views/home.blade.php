@@ -5,14 +5,6 @@
 
     <!-- ==================== HERO SECTION ==================== -->
     <section class="hero-section">
-        <!-- Top Search Bar inside Hero -->
-        <div class="hero-top-bar">
-            <div class="hero-search-box">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="heroSearchInput" placeholder="Search" aria-label="Search">
-            </div>
-        </div>
-
         <!-- Hero Main Content -->
         <div class="hero-content">
             <h1 class="hero-title">

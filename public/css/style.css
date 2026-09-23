@@ -47,7 +47,7 @@ body.page-body {
     overflow-x: hidden;
 }
 
-/* --- Full Background with Image, Warm Sunset Gradient & Blur Overlay --- */
+/* --- Full Background with Image, Warm Sunset Gradient & Overlay --- */
 .page-background-overlay {
     position: fixed;
     top: 0;
@@ -55,13 +55,11 @@ body.page-body {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(180deg, rgba(25, 20, 15, 0.45) 0%, rgba(20, 15, 10, 0.58) 50%, rgba(15, 10, 5, 0.72) 100%),
+        linear-gradient(180deg, rgba(20, 15, 10, 0.38) 0%, rgba(20, 15, 10, 0.52) 50%, rgba(15, 10, 5, 0.68) 100%),
         url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    filter: blur(5px);
-    transform: scale(1.05); /* Avoid white edges from blur */
     z-index: -2;
 }
 
@@ -359,74 +357,82 @@ body.page-body::before {
    FROSTED GLASS CONTAINER (KEUNGGULAN & PAKET WISATA)
    ========================================================================== */
 .section-frosted-container {
-    background: var(--bg-glass-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    border-radius: 24px;
-    padding: 24px 22px 30px 22px;
-    margin-bottom: 44px;
-    box-shadow: var(--shadow-glass);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    padding: 18px 20px 22px 20px;
+    margin-bottom: 38px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 .section-glass-header {
     text-align: center;
     color: #ffffff;
-    font-size: 21px;
+    font-size: 19px;
     font-weight: 700;
-    margin-bottom: 22px;
+    margin-bottom: 14px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     letter-spacing: -0.2px;
 }
 
-/* --- Features Grid (Keunggulan Kami) --- */
+/* --- Features Grid (Keunggulan Kami - Translucent Glass Cards) --- */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 14px;
 }
 
 .feature-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 26px 18px 24px 18px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 12px;
+    padding: 14px 12px 14px 12px;
     text-align: center;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-height: 110px;
 }
 
 .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.88);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon-wrapper {
     color: var(--primary-orange);
-    font-size: 30px;
-    margin-bottom: 14px;
+    font-size: 22px;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 42px;
+    height: 28px;
 }
 
 .feature-title {
-    font-size: 14.5px;
+    font-size: 13.5px;
     font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    line-height: 1.2;
 }
 
 .feature-description {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.45;
+    font-size: 11px;
+    color: var(--text-slate);
+    line-height: 1.35;
+    max-width: 210px;
 }
 
-/* --- Packages Grid (Paket Wisata Populer) --- */
+/* --- Packages Grid (Paket Wisata Populer - Translucent Glass Cards) --- */
 .packages-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -434,16 +440,20 @@ body.page-body::before {
 }
 
 .package-card {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.68);
     border-radius: 16px;
     padding: 10px;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     display: flex;
     flex-direction: column;
 }
 
 .package-card:hover {
+    background: rgba(255, 255, 255, 0.9);
     transform: translateY(-4px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
@@ -786,20 +796,23 @@ body.page-body::before {
 }
 
 /* ==========================================================================
-   SECTION: INFORMASI KONTAK
+   SECTION: INFORMASI KONTAK (PURE SOLID WHITE CARD)
    ========================================================================== */
 .section-contact-info-wrapper {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    width: 100%;
 }
 
 .contact-info-pill-card {
     background: #ffffff;
-    border-radius: 24px;
-    padding: 26px 24px;
+    border-radius: 20px;
+    padding: 26px 28px;
     box-shadow: var(--shadow-glass);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    width: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .info-column-item {
@@ -818,8 +831,8 @@ body.page-body::before {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 17px;
-    margin-bottom: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
     box-shadow: 0 3px 10px rgba(234, 88, 12, 0.35);
 }
 
@@ -833,20 +846,18 @@ body.page-body::before {
 .info-col-text {
     font-size: 11.5px;
     color: var(--text-slate);
-    line-height: 1.45;
+    line-height: 1.48;
 }
 
 /* ==========================================================================
-   FOOTER COMPONENT
+   FOOTER COMPONENT (CLEAN & SUBTLE OVERLAY)
    ========================================================================== */
 .footer-wrapper {
     width: 100%;
-    background: rgba(15, 12, 8, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border-top: none;
     color: #ffffff;
-    padding: 40px 0 24px 0;
+    padding: 0 0 24px 0;
     margin-top: auto;
 }
 
@@ -857,87 +868,18 @@ body.page-body::before {
 }
 
 .footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.2fr 1fr;
-    gap: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-brand .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-}
-
-.footer-desc {
-    font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    max-width: 320px;
-}
-
-.footer-links h4,
-.footer-social h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 14px;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: var(--primary-orange);
-}
-
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons a {
-    width: 34px;
-    height: 34px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 13px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.social-icons a:hover {
-    background: var(--primary-orange);
-    transform: translateY(-2px);
+    display: none; /* Hide heavy multi-column footer to match screenshot */
 }
 
 .footer-bottom {
-    padding-top: 20px;
+    padding-top: 10px;
     text-align: center;
 }
 
 .footer-bottom p {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
@@ -1030,13 +972,196 @@ body.page-body::before {
     .contact-info-pill-card {
         grid-template-columns: 1fr;
         gap: 20px;
+        border-radius: 20px;
+        padding: 24px 20px;
     }
 
-    .form-row-two-cols {
-        grid-template-columns: 1fr;
+/* ==========================================================================
+   PAKET WISATA PAGE SPECIFIC STYLES
+   ========================================================================== */
+.hero-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hero-back-btn:hover {
+    color: var(--primary-orange);
+    transform: translateX(-4px);
+}
+
+.btn-hero-white {
+    background: #ffffff;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 11px 26px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn-hero-white:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* Search & Filter Bar */
+.filter-pill-bar {
+    background: #ffffff;
+    border-radius: 9999px;
+    padding: 8px 18px 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-pill);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 20;
+}
+
+.filter-search-input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.filter-search-input-group i {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.filter-search-input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: transparent;
+}
+
+.filter-category-dropdown {
+    position: relative;
+}
+
+.btn-filter-category {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+}
+
+.btn-filter-category:hover {
+    background: #f1f5f9;
+}
+
+.category-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 8px 0;
+    min-width: 180px;
+    box-shadow: var(--shadow-glass);
+    z-index: 50;
+    border: 1px solid #e2e8f0;
+}
+
+.category-dropdown-menu.show {
+    display: block;
+}
+
+.category-dropdown-menu .dropdown-item {
+    display: block;
+    padding: 8px 18px;
+    font-size: 13px;
+    color: var(--text-slate);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.category-dropdown-menu .dropdown-item:hover,
+.category-dropdown-menu .dropdown-item.active {
+    background: var(--primary-orange-light);
+    color: var(--primary-orange);
+}
+
+/* Pagination */
+.paket-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 28px 0 44px 0;
+}
+
+.page-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.page-num:hover {
+    color: var(--primary-orange);
+}
+
+.page-num.active {
+    background: #ffffff;
+    color: var(--primary-orange);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    .filter-pill-bar {
+        border-radius: 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 14px 18px;
     }
 
-    .footer-top {
-        grid-template-columns: 1fr;
+    .btn-filter-category {
+        justify-content: space-between;
+        padding: 8px 0 0 0;
+        border-top: 1px solid #e2e8f0;
+        border-radius: 0;
+    }
+
+    .category-dropdown-menu {
+        right: auto;
+        left: 0;
+        width: 100%;
     }
 }
+

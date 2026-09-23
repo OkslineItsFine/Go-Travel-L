@@ -14,19 +14,19 @@
         <!-- Desktop Menu -->
         <ul class="navbar-nav-menu" id="navMenu">
             <li class="nav-item">
-                <a href="{{ url('/') }}" class="nav-link active">Beranda</a>
+                <a href="{{ url('/') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Beranda</a>
             </li>
             <li class="nav-item">
-                <a href="#paket-wisata" class="nav-link">Paket Wisata</a>
+                <a href="{{ url('/paket-wisata') }}" class="nav-link {{ request()->is('paket-wisata*') ? 'active' : '' }}">Paket Wisata</a>
             </li>
             <li class="nav-item">
-                <a href="#destinasi" class="nav-link">Destinasi</a>
+                <a href="{{ url('/#destinasi') }}" class="nav-link">Destinasi</a>
             </li>
             <li class="nav-item">
-                <a href="#about" class="nav-link">About</a>
+                <a href="{{ url('/#about') }}" class="nav-link">About</a>
             </li>
             <li class="nav-item">
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="{{ url('/#contact') }}" class="nav-link">Contact</a>
             </li>
         </ul>
 
